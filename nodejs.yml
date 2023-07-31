@@ -11,7 +11,7 @@
     name: nodejs
     state: installed
 
-- name: app pre-requisites
+- name: app pre requisites
   ansible.builtin.imports_tasks: app-preq.yml
 
 - name: install NodeJS Dependencies
