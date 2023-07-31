@@ -3,12 +3,12 @@
   become: true
   tasks:
 
-- name: Copy mongo.repo file
+- name: Copy mongo repo file
   ansible.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
-- name: Install mongodb-org
+- name: Install mongodb
   ansible.builtin.yum:
      name: mongodb-org
      state: installed
