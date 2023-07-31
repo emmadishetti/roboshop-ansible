@@ -1,0 +1,64 @@
+- name: Copy mongo repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: install NodeJS Repos
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: install NodeJS
+  ansible.builtin.yum:
+    name: nodejs
+    state: installed
+
+- name: app pre-requisites
+  ansible.builtin.imports_tasks: app-preq.yml
+
+- name: install NodeJS Dependencies
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: schema setup
+  ansible.builtin.import_tasks: mongo-schema.yml
+
+- name: start catalogue service
+  ansible.builtin.import_tasks: systemd-setup.yml
+
+
+
+
+
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  func_apppreq
+
+
+echo -e "\e[36m>>>>>>>>>>>>  Download NodeJS Dependencies  <<<<<<<<<<<<\e[0m"
+npm install &>>${log}
+func_exit_status
+
+func_schema_setup
+
+func_systemd
+}
