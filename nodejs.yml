@@ -22,5 +22,5 @@
 - name: schema setup
   ansible.builtin.import_tasks: mongo-schema.yml
 
-- name: start catalogue service
+- name: start systemd service
   ansible.builtin.import_tasks: systemd-setup.yml
