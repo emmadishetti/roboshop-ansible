@@ -1,0 +1,3 @@
+vars:
+  component: user
+  schema: true
