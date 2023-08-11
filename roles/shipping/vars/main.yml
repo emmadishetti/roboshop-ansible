@@ -1,3 +1,2 @@
-vars:
-  component: shipping
-  schema: true
+component: shipping
+schema: true

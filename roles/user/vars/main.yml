@@ -1,3 +1,2 @@
-vars:
-  component: user
-  schema: true
+component: user
+schema: true
